@@ -2,6 +2,7 @@ package com.boolder.boolder.view.detail.composable
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement.Absolute.spacedBy
 import androidx.compose.foundation.layout.Column
@@ -15,7 +16,6 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.AssistChipDefaults
-import androidx.compose.material3.ChipBorder
 import androidx.compose.material3.ChipColors
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -190,7 +190,7 @@ private fun ChipsRow(
                     labelColor = Color.White,
                     leadingIconContentColor = Color.White
                 ),
-                border = AssistChipDefaults.assistChipBorder(borderWidth = 0.dp),
+                border = null,
                 onClick = { onBleauInfoClicked() }
             )
         }
@@ -210,7 +210,10 @@ private fun ChipsRow(
                     labelColor = colorPrimary,
                     leadingIconContentColor = colorPrimary
                 ),
-                border = AssistChipDefaults.assistChipBorder(borderColor = colorPrimary),
+                border = AssistChipDefaults.assistChipBorder(
+                    enabled = true,
+                    borderColor = colorPrimary
+                ),
                 onClick = { showSaveDialog = true }
             )
         }
@@ -224,7 +227,10 @@ private fun ChipsRow(
                     labelColor = colorPrimary,
                     leadingIconContentColor = colorPrimary
                 ),
-                border = AssistChipDefaults.assistChipBorder(borderColor = colorPrimary),
+                border = AssistChipDefaults.assistChipBorder(
+                    enabled = true,
+                    borderColor = colorPrimary
+                ),
                 onClick = onShareClicked
             )
         }
@@ -245,7 +251,7 @@ private fun ChipButton(
     @StringRes labelRes: Int,
     @DrawableRes iconRes: Int,
     colors: ChipColors,
-    border: ChipBorder,
+    border: BorderStroke?,
     onClick: () -> Unit
 ) {
     AssistChip(

@@ -13,6 +13,9 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.compose.foundation.layout.padding
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.postDelayed
@@ -145,6 +148,7 @@ class MapFragment : Fragment(), BoolderMapListener {
             binding.controlsOverlayComposeView.setContent {
                 BoolderTheme {
                     MapControlsOverlay(
+                        modifier = Modifier.padding(bottom = 80.dp),
                         offlineAreaItem = screenState.areaState,
                         circuitState = screenState.circuitState,
                         gradeState = screenState.gradeState,

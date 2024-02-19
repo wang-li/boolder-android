@@ -218,7 +218,7 @@ private fun DownloadInfoDownloadingProgress(progress: Float) {
                 modifier = Modifier
                     .size(80.dp)
                     .graphicsLayer { rotationZ = rotationAngle },
-                progress = progress,
+                progress = { progress },
                 strokeWidth = 8.dp,
                 strokeCap = StrokeCap.Round
             )
